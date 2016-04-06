@@ -14,7 +14,7 @@ class ProdCal(Calendar):
         self.non_work_days, self.work_days = get_prodcals(self.locale)
 
     def is_work_day(self, *args):
-        """Проверяем рабочий ли сегодня день"""
+        """Checking if the working day today"""
         args = cast_single_date(args)
         if self.work_days.is_value(args):
             return True
@@ -23,7 +23,7 @@ class ProdCal(Calendar):
         return True
 
     def count_work_days(self, start_date, end_date):
-        """Подсчёт количества рабочих дней в интервале"""
+        """Counting the number of working days in the interval"""
         start_date, end_date = cast(start_date, end_date)
         tm_delta = end_date - start_date
         work_days = 0
@@ -33,7 +33,7 @@ class ProdCal(Calendar):
         return work_days
 
     def count_holidays(self, start_date, end_date):
-        """Подсчёт количества выходных дней в интервале"""
+        """Counting the number of days off in the interval"""
         tm_delta = 0
         if isinstance(end_date, int):
             tm_delta = end_date
@@ -49,7 +49,7 @@ class ProdCal(Calendar):
         return holidays
 
     def get_date_by_work_days(self, start_date, work_days):
-        """Вычисляем конечную дату по количеству рабочих дней"""
+        """Calculating the end date by the number of working days"""
         start_date = cast_single_date(start_date)
         days_counter = 0
         work_days_counter = 0
