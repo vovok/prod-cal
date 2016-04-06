@@ -12,7 +12,7 @@ def check_locale(locale):
         raise ValueError("Unnsupported/Unknown locale")
 
 def get_prodcals(locale):
-    pc = import_module('holidays.prodcals.' + locale.lower())
+    pc = import_module('prodcal.prodcals.' + locale.lower())
     return pc.NON_WORK_DAY_DICT, pc.WORK_DAY_DICT
 
 def get_date_today(day):

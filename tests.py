@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from holidays import ProdCal
+from prodcal import ProdCal
 from datetime import date
-from holidays.service import get_date_today
+from prodcal.service import get_date_today
 import unittest
 
 
