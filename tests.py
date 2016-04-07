@@ -6,7 +6,6 @@ from datetime import date
 from prodcal.service import get_date_today
 import unittest
 
-
 class BasicTestCaseRU(unittest.TestCase):
     my_first_prod_cal = ProdCal(locale='RU')
 
@@ -371,6 +370,16 @@ class BasicTestCaseGE(unittest.TestCase):
         self.assertEqual(self.my_first_prod_cal.get_date_by_work_days('today', 21),
                          self.my_first_prod_cal.get_date_by_work_days(get_date_today('today'), 21))
 
+class AdvTest(unittest.TestCase):
+    my_first_prod_cal = ProdCal(locale='RU')
+
+    def test_unicode(self):
+        self.assertEqual(self.my_first_prod_cal.is_work_day(u'today'),
+                         self.my_first_prod_cal.is_work_day(get_date_today(u'today')))
+
+    def test_date_non_2016(self):
+        self.assertEqual(self.my_first_prod_cal.is_work_day(2014, 4, 7), True)
+        self.assertEqual(self.my_first_prod_cal.is_work_day(2017, 4, 7), True)
 
 if __name__ == '__main__':
     unittest.main()
