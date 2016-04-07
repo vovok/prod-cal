@@ -381,5 +381,10 @@ class AdvTest(unittest.TestCase):
         self.assertEqual(self.my_first_prod_cal.is_work_day(2014, 4, 7), True)
         self.assertEqual(self.my_first_prod_cal.is_work_day(2017, 4, 7), True)
 
+    def test_count_work_time(self):
+        self.assertEqual(self.my_first_prod_cal.count_work_time([2016, 4, 11], [2016, 4, 15]), 40)
+
+    def test_date_by_work_time(self):
+        self.assertEqual(self.my_first_prod_cal.get_date_by_work_time([2016, 4, 11], 40), date(2016, 4, 18))
 if __name__ == '__main__':
     unittest.main()
