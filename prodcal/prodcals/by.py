@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 """Production calendar for Belarus"""
 
 from prod_dict import ProdDict
