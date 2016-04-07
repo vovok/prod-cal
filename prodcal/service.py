@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from config import LOCALE_SUPPORTING
 from importlib import import_module
 from datetime import datetime, timedelta, date
@@ -17,11 +14,11 @@ def get_prodcals(locale):
 
 def get_date_today(day):
     today = datetime.today().date()
-    if 'today' == day:
+    if u'today' == day:
         return today
-    elif 'yesterday' == day:
+    elif u'yesterday' == day:
         return today - timedelta(days=1)
-    elif 'tomorrow' == day:
+    elif u'tomorrow' == day:
         return today + timedelta(days=1)
     raise ValueError('Unknown string format', day)
 
@@ -50,13 +47,13 @@ def cast(start_date, end_date):
     return start_date, end_date
 
 def cast_single_date(args):
-    if isinstance(args, (str, date)):
+    if isinstance(args, (str, date, unicode)):
         if isinstance(args, str):
             return get_date_today(args)
         elif isinstance(args, date):
             return args
     elif isinstance(args, (tuple, list)):
-        if isinstance(args[0], str):
+        if isinstance(args[0], (str, unicode)):
             return get_date_today(args[0])
         elif isinstance(args[0], int):
             return date(*args)

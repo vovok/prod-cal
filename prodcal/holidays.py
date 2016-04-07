@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from calendar import weekday
 from service import check_locale, get_prodcals, cast, cast_single_date
 from config import DEFAULT_LOCALE
