@@ -7,4 +7,7 @@ LOCALE_SUPPORTING = {"RU": "Russian Federation",
                      "KZ": "Kazakhstan",
                      "BY": "Belarus",
                      "GE": "Georgia",
+                     "EE": "Estonia",
+                     "DE": "Germany",
+                     "CN": "China",
                      }
